@@ -208,7 +208,7 @@ const HeroSection = () => {
     <motion.section
       id="hero"
       style={{ y }}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-40 md:pt-48" // increased padding-top
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-10 md:pt-28" // increased padding-top
     >
       {/* Profile Image */}
       <motion.img
@@ -808,28 +808,28 @@ const ContactSection = () => {
 
             <div className="space-y-6">
               <a
-                href="mailto:aniruddha@example.com"
+                href="mailto:cd43641@truman.edu"
                 className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
               >
                 <Mail className="w-6 h-6 text-cyan-400 mr-4 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-white">aniruddha@example.com</span>
+                <span className="text-white">Email</span>
               </a>
 
               <a
-                href="https://github.com/aniruddhabiswas"
+                href="https://github.com/SteveRogersBD"
                 className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
               >
                 <Github className="w-6 h-6 text-cyan-400 mr-4 group-hover:scale-110 transition-transform duration-300" />
-                <span className="text-white">github.com/aniruddhabiswas</span>
+                <span className="text-white">Github</span>
               </a>
 
               <a
-                href="https://linkedin.com/in/aniruddhabiswas"
+                href="https://www.linkedin.com/in/aniruddha-biswas-atanu-16b708228"
                 className="flex items-center p-4 bg-white/5 rounded-lg hover:bg-white/10 transition-all duration-300 group"
               >
                 <Linkedin className="w-6 h-6 text-cyan-400 mr-4 group-hover:scale-110 transition-transform duration-300" />
                 <span className="text-white">
-                  linkedin.com/in/aniruddhabiswas
+                  LinkedIn
                 </span>
               </a>
             </div>
@@ -879,6 +879,7 @@ function App() {
     <div className="bg-gray-900 text-white overflow-x-hidden">
       <ParticleBackground />
       <Navigation />
+      <div className="h-20 md:h-24" />
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
