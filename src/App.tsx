@@ -208,7 +208,7 @@ const HeroSection = () => {
     <motion.section
       id="hero"
       style={{ y }}
-      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden pt-10 md:pt-28" // increased padding-top
+      className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden" // increased padding-top
     >
       {/* Profile Image */}
       <motion.img
@@ -242,7 +242,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 1.5 }}
-          className="flex flex-col sm:flex-row gap-6 justify-center"
+          className="flex flex-col sm:flex-row gap-6 justify-center mb-40"
         >
           <button className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-full text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300 transform hover:scale-105">
             View My Work
