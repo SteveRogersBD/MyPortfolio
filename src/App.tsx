@@ -503,8 +503,8 @@ const ProjectsSection = () => {
         'AI-powered agriculture monitoring system with real-time crop health analysis and predictive farming insights.',
       image:
         'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg',
-      tech: ['Python', 'TensorFlow', 'IoT', 'React'],
-      github: '#',
+      tech: ['Android','Java', 'TensorFlow', 'Gemini Api', 'k8s','Docker'],
+      github: 'https://github.com/SteveRogersBD/Truhacks25',
       demo: '#',
     },
     {
@@ -513,8 +513,8 @@ const ProjectsSection = () => {
         'Interactive chemistry learning platform featuring 3D periodic table visualization and molecular modeling.',
       image:
         'https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg',
-      tech: ['Java', 'Android', '3D Graphics', 'SQLite'],
-      github: '#',
+      tech: ['Java', 'Android', 'SpringBoot', 'PostGreSQL','K8s','Docker'],
+      github: 'https://github.com/SteveRogersBD/AtomicaApp',
       demo: '#',
     },
     {
@@ -523,7 +523,7 @@ const ProjectsSection = () => {
         'AI-based home security system with facial recognition, object detection, and real-time threat assessment.',
       image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
       tech: ['Python', 'OpenCV', 'Deep Learning', 'Raspberry Pi'],
-      github: '#',
+      github: 'https://github.com/SteveRogersBD/PickHacks2024',
       demo: '#',
     },
   ];
@@ -615,7 +615,7 @@ const AchievementsSection = () => {
       position: 'Champion',
       year: '2024',
       description:
-        "First place in Google's accessibility-focused AI competition",
+        "First place in Build for Everyone with Gemini-focused competition",
     },
     {
       title: 'Truhack 2024',
