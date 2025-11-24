@@ -260,33 +260,23 @@ const HeroSection = () => {
 const AboutSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const skills = [
-    // Languages
-    { name: 'Java', icon: <Code2 className="w-6 h-6" /> },
-
-    // Frameworks & Platforms
-    { name: 'Spring Boot', icon: <Database className="w-6 h-6" /> },
-    { name: 'Android Studio', icon: <Smartphone className="w-6 h-6" /> },
-
-    // Databases
-    { name: 'MySQL', icon: <Database className="w-6 h-6" /> },
-    { name: 'MongoDB', icon: <Database className="w-6 h-6" /> },
-    { name: 'Redis', icon: <Database className="w-6 h-6" /> },
-
-    // Cloud & DevOps
-    { name: 'AWS', icon: <Cloud className="w-6 h-6" /> },
-    { name: 'Docker', icon: <Box className="w-6 h-6" /> },
-    { name: 'Kubernetes', icon: <Box className="w-6 h-6" /> },
-    { name: 'Jenkins', icon: <Wrench className="w-6 h-6" /> },
-
-    // Messaging & Streaming
-    { name: 'RabbitMQ', icon: <Server className="w-6 h-6" /> },
-    { name: 'Kafka', icon: <Layers className="w-6 h-6" /> },
-
-    // Other Skills
-    { name: 'System Design', icon: <Cpu className="w-6 h-6" /> },
-    { name: 'AI/ML', icon: <Bot className="w-6 h-6" /> },
-    { name: 'Git/GitHub', icon: <GitBranch className="w-6 h-6" /> },
+  const skillCategories = [
+    {
+      category: 'Languages',
+      skills: 'Java, Python, C++, C, JavaScript, SQL',
+    },
+    {
+      category: 'Backend',
+      skills: 'Spring Boot, Microservices, PostgreSQL, MongoDB, Redis, Kafka, RabbitMQ, OpenFeign, Resilience4J, Maven',
+    },
+    {
+      category: 'DevOps & Cloud',
+      skills: 'Docker, AWS/GCP, GitHub Actions, Git',
+    },
+    {
+      category: 'Frontend',
+      skills: 'React, TailwindCSS, Android',
+    },
   ];
 
   return (
@@ -370,17 +360,21 @@ const AboutSection = () => {
             <h3 className="text-2xl font-semibold text-white mb-6">
               Technical Skills
             </h3>
-            <div className="grid grid-cols-2 gap-4">
-              {skills.map((skill, index) => (
+            <div className="space-y-4">
+              {skillCategories.map((category, index) => (
                 <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
-                  className="flex items-center p-3 bg-white/5 rounded-lg border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300"
+                  key={category.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.6, delay: 0.6 + index * 0.1 }}
+                  className="p-4 bg-white/5 rounded-lg border border-cyan-500/20 hover:border-cyan-500/40 transition-all duration-300"
                 >
-                  <span className="text-cyan-400 mr-3">{skill.icon}</span>
-                  <span className="text-white font-medium">{skill.name}</span>
+                  <h4 className="text-cyan-400 font-semibold mb-2">
+                    {category.category}:
+                  </h4>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {category.skills}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -397,30 +391,30 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      title: 'Research Assistant',
-      company: 'Truman State University',
-      period: '2024 - Present',
+      title: 'Full Stack Developer',
+      company: 'LNA Bikes',
+      period: 'July 2025 – October 2025',
       description:
-        'Developing interactive exergame with gesture detection using computer vision and machine learning algorithms.',
-      skills: ['Python', 'OpenCV', 'TensorFlow', 'Computer Vision'],
+        'Architected and built the full stack and deployed it on AWS EKS for scalable production use.',
+      skills: ['Node', 'React', 'MongoDB', 'AWS'],
       color: 'cyan',
     },
     {
       title: 'Backend Engineer',
       company: 'Kababesh Grill',
-      period: '2023 - 2024',
+      period: 'July 2025 – October 2025',
       description:
         'Built comprehensive online food ordering platform with real-time order tracking and payment integration.',
       skills: ['Java', 'Spring Boot', 'MySQL', 'Docker'],
       color: 'purple',
     },
     {
-      title: 'Backend Engineer',
-      company: 'Global AI News Platform',
-      period: '2023 - 2024',
+      title: 'Research Assistant',
+      company: 'Truman State University',
+      period: 'June 2024 – August 2024',
       description:
-        'Developed scalable backend infrastructure for AI news aggregation and analysis platform.',
-      skills: ['Node.js', 'MongoDB', 'AWS', 'Machine Learning'],
+        'Developing interactive exergame with gesture detection using computer vision and machine learning algorithms.',
+      skills: ['Python', 'OpenCV', 'TensorFlow', 'Computer Vision'],
       color: 'pink',
     },
   ];
@@ -610,6 +604,12 @@ const AchievementsSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const achievements = [
+    {
+      title: 'TigerHacks',
+      position: 'Third Prize',
+      year: '2025',
+      description: 'Third place winner at University of Missouri hackathon',
+    },
     {
       title: 'Build for Everyone with Gemini',
       position: 'Champion',
