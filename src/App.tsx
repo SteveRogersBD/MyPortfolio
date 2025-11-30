@@ -492,32 +492,53 @@ const ProjectsSection = () => {
 
   const projects = [
     {
-      title: 'GreenPulse',
+      title: 'AgroHub',
       description:
-        'AI-powered agriculture monitoring system with real-time crop health analysis and predictive farming insights.',
+        'Comprehensive agriculture management platform with real-time monitoring and analytics.',
       image:
         'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg',
-      tech: ['Android','Java', 'TensorFlow', 'Gemini Api', 'k8s','Docker'],
-      github: 'https://github.com/SteveRogersBD/Truhacks25',
+      tech: ['Kotlin', 'Jetpack Compose', 'Spring Framework', 'Google ADK', 'PostgreSQL', 'Docker'],
+      github: 'https://github.com/SteveRogersBD/AgroHub',
       demo: '#',
     },
     {
-      title: 'Atomica',
+      title: 'Ulka',
       description:
-        'Interactive chemistry learning platform featuring 3D periodic table visualization and molecular modeling.',
+        'Interactive 3D space exploration platform with immersive visualization and real-time rendering.',
       image:
-        'https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg',
-      tech: ['Java', 'Android', 'SpringBoot', 'PostGreSQL','K8s','Docker'],
-      github: 'https://github.com/SteveRogersBD/AtomicaApp',
+        'https://images.pexels.com/photos/2159/flight-sky-earth-space.jpg',
+      tech: ['React', 'Node', 'Three.js', 'Tailwind'],
+      github: 'https://github.com/SteveRogersBD/Space',
       demo: '#',
     },
     {
-      title: 'The Third Eye',
+      title: 'WiggleWorld',
       description:
-        'AI-based home security system with facial recognition, object detection, and real-time threat assessment.',
-      image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
-      tech: ['Python', 'OpenCV', 'Deep Learning', 'Raspberry Pi'],
-      github: 'https://github.com/SteveRogersBD/PickHacks2024',
+        'Engaging exergame platform combining fitness and gaming with 3D interactive experiences.',
+      image:
+        'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg',
+      tech: ['React', 'Node', 'Three.js', 'Tailwind'],
+      github: 'https://github.com/SteveRogersBD/ExerGame-Krio',
+      demo: '#',
+    },
+    {
+      title: 'CalorieChase',
+      description:
+        'Smart fitness tracking application with calorie monitoring and personalized workout recommendations.',
+      image:
+        'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+      tech: ['Java', 'Strands SDK', 'Spring Boot'],
+      github: 'https://github.com/SteveRogersBD/CalorieChase',
+      demo: '#',
+    },
+    {
+      title: 'Bridge',
+      description:
+        'AI-powered communication assistant with text-to-speech capabilities and intelligent conversation features.',
+      image:
+        'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg',
+      tech: ['Java', 'TTS', 'Android', 'MySQL', 'Spring Boot', 'Gemini API'],
+      github: 'https://github.com/SteveRogersBD/BridgeApp',
       demo: '#',
     },
   ];
