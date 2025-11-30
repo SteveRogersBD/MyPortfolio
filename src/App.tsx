@@ -596,34 +596,34 @@ const ProjectsSection = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="group perspective-1000"
             >
-              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/30 transition-all duration-500 transform hover:scale-105 hover:rotate-y-12">
+              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/30 transition-all duration-500 transform hover:scale-105 hover:rotate-y-12 h-full flex flex-col">
                 <div
-                  className="h-48 bg-cover bg-center relative"
+                  className="h-48 bg-cover bg-center relative flex-shrink-0"
                   style={{ backgroundImage: `url(${project.image})` }}
                 >
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                 </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-bold text-white mb-3 h-14 flex items-center">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
+                  <p className="text-gray-300 mb-4 text-sm leading-relaxed h-20 overflow-hidden">
                     {project.description}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-2 mb-4 min-h-[60px]">
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full text-cyan-300 text-xs border border-cyan-500/30"
+                        className="px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full text-cyan-300 text-xs border border-cyan-500/30 h-fit"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex space-x-3">
+                  <div className="flex space-x-3 mt-auto">
                     <a
                       href={project.github}
                       className="flex items-center px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white text-sm transition-colors duration-300"
