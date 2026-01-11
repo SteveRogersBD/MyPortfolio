@@ -391,30 +391,39 @@ const ExperienceSection = () => {
 
   const experiences = [
     {
-      title: 'Full Stack Developer',
-      company: 'LNA Bikes',
-      period: 'July 2025 – October 2025',
-      description:
-        'Architected and built the full stack and deployed it on AWS EKS for scalable production use.',
-      skills: ['Node', 'React', 'MongoDB', 'AWS'],
-      color: 'cyan',
-    },
-    {
-      title: 'Backend Engineer',
-      company: 'Kababesh Grill',
-      period: 'July 2025 – October 2025',
-      description:
-        'Built comprehensive online food ordering platform with real-time order tracking and payment integration.',
-      skills: ['Java', 'Spring Boot', 'MySQL', 'Docker'],
+      title: 'Co-Founder & Full-Stack Developer',
+      company: 'Souna',
+      period: 'Virginia | June 2025 – Present',
+      description: [
+        'Launched a full-stack audio streaming platform to thousands of monthly active users, independently architecting the infrastructure on Next.js, TypeScript, and Supabase.',
+        'Built a highly available edge-compute pipeline using Cloudflare Pages and Cloudflare Workers, ensuring low-latency global access and 99.9% uptime for a real-time audience.',
+        'Engineered a production-grade reliability stack with Sentry (for PII-safe error tracking) and Vitest (for automated testing), reducing critical bugs in live production environments.',
+      ],
+      skills: ['Next.js', 'TypeScript', 'Supabase', 'Cloudflare', 'Sentry'],
       color: 'purple',
     },
     {
+      title: 'Backend Engineer',
+      company: 'LNA Bikes',
+      period: 'Remote | Aug 2025 – Oct 2025',
+      description: [
+        'Architected scalable REST APIs using Spring Boot and Java, designing complex ER diagram to support high-throughput inventory management.',
+        'Partnered with frontend engineers to define strict TypeScript API contracts, ensuring type safety and reducing integration turnaround time by 40%.',
+        'Orchestrated the deployment of microservices on AWS EKS, building automated CI/CD pipelines to ensure operational stability and zero-downtime releases.',
+      ],
+      skills: ['Java', 'Spring Boot', 'AWS EKS', 'TypeScript', 'Microservices'],
+      color: 'cyan',
+    },
+    {
       title: 'Research Assistant',
-      company: 'Truman State University',
-      period: 'June 2024 – August 2024',
-      description:
-        'Developing interactive exergame with gesture detection using computer vision and machine learning algorithms.',
-      skills: ['Python', 'OpenCV', 'TensorFlow', 'Computer Vision'],
+      company: 'CS Department, Truman State University',
+      period: 'Kirksville, MO | June 2024 – August 2024',
+      description: [
+        'Researched interactive exergame design to analyze how gamified physical activity enhances children’s engagement and learning.',
+        'Implemented multithreading to handle concurrent processes, including gesture detection, video playback, and real-time interaction seamlessly.',
+        'Edited videos and integrated them into the game as educational content, enhancing the interactive storytelling experience.',
+      ],
+      skills: ['Research', 'Multithreading', 'Game Design', 'Interactive Media'],
       color: 'pink',
     },
   ];
@@ -466,7 +475,11 @@ const ExperienceSection = () => {
                   {exp.title}
                 </h3>
                 <h4 className="text-xl text-purple-400 mb-4">{exp.company}</h4>
-                <p className="text-gray-300 mb-6">{exp.description}</p>
+                <ul className="text-gray-300 mb-6 listing-disc pl-5 space-y-2">
+                  {exp.description.map((point: string, i: number) => (
+                    <li key={i} className="list-disc ml-4">{point}</li>
+                  ))}
+                </ul>
                 <div className="flex flex-wrap gap-2">
                   {exp.skills.map((skill, skillIndex) => (
                     <span

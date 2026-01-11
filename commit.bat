@@ -1,21 +1,45 @@
 @echo off
+setlocal
 REM Quick Git Commit Script
-REM Usage: commit.bat "your commit message"
+REM Usage: commit.bat "your commit message" (or just run it and type the message)
 
-if "%~1"=="" (
-    echo Error: Please provide a commit message
-    echo Usage: commit.bat "your commit message"
+set "msg=%~1"
+
+if "%msg%"=="" (
+    set /p "msg=Enter commit message: "
+)
+
+if "%msg%"=="" (
+    echo Error: Commit message cannot be empty.
     exit /b 1
 )
 
+echo.
 echo Adding all changes...
 git add .
-
-echo Committing with message: %~1
-git commit -m "%~1"
-
-echo Pushing to remote...
-git push
+if %ERRORLEVEL% NEQ 0 (
+    echo Error adding files.
+    exit /b %ERRORLEVEL%
+)
 
 echo.
-echo Done! All changes have been committed and pushed.
+echo Committing with message: "%msg%"
+git commit -m "%msg%"
+if %ERRORLEVEL% NEQ 0 (
+    echo Error committing files.
+    exit /b %ERRORLEVEL%
+)
+
+echo.
+echo Pushing to remote...
+git push
+if %ERRORLEVEL% NEQ 0 (
+    echo Error pushing to remote.
+    exit /b %ERRORLEVEL%
+)
+
+echo.
+echo ============================================
+echo DONE! All changes have been committed and pushed.
+echo ============================================
+pause
