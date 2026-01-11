@@ -24,7 +24,6 @@ import {
   GraduationCap,
   MapPin,
   Calendar,
-  ExternalLink,
   Trophy,
   ArrowUp,
 } from 'lucide-react';
@@ -89,7 +88,7 @@ const ParticleBackground = () => {
         particles.slice(index + 1).forEach((otherParticle) => {
           const distance = Math.sqrt(
             Math.pow(particle.x - otherParticle.x, 2) +
-              Math.pow(particle.y - otherParticle.y, 2)
+            Math.pow(particle.y - otherParticle.y, 2)
           );
 
           if (distance < 100) {
@@ -185,11 +184,10 @@ const Navigation = () => {
           <button
             key={item.id}
             onClick={() => scrollToSection(item.id)}
-            className={`px-4 py-2 rounded-full transition-all duration-300 ${
-              activeSection === item.id
-                ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-lg shadow-cyan-500/30'
-                : 'text-gray-300 hover:text-white hover:bg-white/10'
-            }`}
+            className={`px-4 py-2 rounded-full transition-all duration-300 ${activeSection === item.id
+              ? 'bg-gradient-to-r from-cyan-500 to-purple-600 text-white shadow-lg shadow-cyan-500/30'
+              : 'text-gray-300 hover:text-white hover:bg-white/10'
+              }`}
           >
             {item.label}
           </button>
@@ -452,16 +450,13 @@ const ExperienceSection = () => {
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`relative mb-12 ${
-                index % 2 === 0 ? 'pr-1/2' : 'pl-1/2 ml-auto'
-              }`}
+              className={`relative mb-12 ${index % 2 === 0 ? 'pr-1/2' : 'pl-1/2 ml-auto'
+                }`}
             >
               <div
-                className={`absolute top-6 w-4 h-4 bg-${
-                  exp.color
-                }-500 rounded-full border-4 border-gray-900 ${
-                  index % 2 === 0 ? 'right-[-2.5rem]' : 'left-[-2.5rem]'
-                }`}
+                className={`absolute top-6 w-4 h-4 bg-${exp.color
+                  }-500 rounded-full border-4 border-gray-900 ${index % 2 === 0 ? 'right-[-2.5rem]' : 'left-[-2.5rem]'
+                  }`}
               ></div>
 
               <div className="bg-white/5 backdrop-blur-md rounded-2xl p-8 border border-white/10 hover:border-cyan-500/30 transition-all duration-300 transform hover:scale-105">
@@ -554,26 +549,7 @@ const ProjectsSection = () => {
       github: 'https://github.com/SteveRogersBD/BridgeApp',
       demo: '#',
     },
-    {
-      title: 'GreenPulse',
-      description:
-        'AI-powered agriculture monitoring system with real-time crop health analysis.',
-      image:
-        'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg',
-      tech: ['Android', 'Java', 'TensorFlow', 'Gemini Api', 'k8s', 'Docker'],
-      github: 'https://github.com/SteveRogersBD/Truhacks25',
-      demo: '#',
-    },
-    {
-      title: 'Atomica',
-      description:
-        'Interactive chemistry learning platform with 3D periodic table visualization.',
-      image:
-        'https://images.pexels.com/photos/2280547/pexels-photo-2280547.jpeg',
-      tech: ['Java', 'Android', 'SpringBoot', 'PostGreSQL', 'K8s', 'Docker'],
-      github: 'https://github.com/SteveRogersBD/AtomicaApp',
-      demo: '#',
-    },
+
     {
       title: 'The Third Eye',
       description:
@@ -644,13 +620,7 @@ const ProjectsSection = () => {
                       <Github className="w-4 h-4 mr-1" />
                       Code
                     </a>
-                    <a
-                      href={project.demo}
-                      className="flex items-center px-3 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 rounded-lg text-white text-sm transition-all duration-300"
-                    >
-                      <ExternalLink className="w-4 h-4 mr-1" />
-                      Demo
-                    </a>
+
                   </div>
                 </div>
               </div>
