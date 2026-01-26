@@ -26,6 +26,7 @@ import {
   Calendar,
   Trophy,
   ArrowUp,
+  ExternalLink,
 } from 'lucide-react';
 
 // Particle Background Component
@@ -210,7 +211,7 @@ const HeroSection = () => {
     >
       {/* Profile Image */}
       <motion.img
-        src="/dp.jpg" // <-- replace with your actual image path
+        src="/dp.png"
         alt="Aniruddha Biswas Atanu"
         className="w-40 h-40 rounded-full border-4 border-cyan-500 shadow-lg mb-6 object-cover"
         initial={{ opacity: 0, scale: 0.8 }}
@@ -494,6 +495,88 @@ const ExperienceSection = () => {
   );
 };
 
+// Project Card Component
+const ProjectCard = ({ project, index, inView }: { project: any; index: number; inView: boolean }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.2 }}
+      className={`group perspective-1000 ${isExpanded ? 'z-50' : 'z-auto'}`}
+      onClick={() => setIsExpanded(!isExpanded)}
+    >
+      <div
+        className={`relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/30 transition-all duration-500 transform ${isExpanded ? 'scale-105 border-cyan-500/50 shadow-2xl shadow-cyan-500/20' : 'hover:scale-105'
+          } h-full flex flex-col cursor-pointer`}
+      >
+        <div className="h-48 bg-black/50 relative flex-shrink-0 overflow-hidden">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-contain"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none"></div>
+        </div>
+
+        <div className="p-6 flex flex-col flex-grow">
+          <h3 className="text-xl font-bold text-white mb-3 h-14 flex items-center">
+            {project.title}
+          </h3>
+          <motion.div
+            initial={false}
+            animate={{ height: isExpanded ? 'auto' : '5rem' }}
+            className={`text-gray-300 mb-4 text-sm leading-relaxed overflow-hidden relative`}
+          >
+            <p>{project.description}</p>
+            {!isExpanded && (
+              <div className="absolute bottom-0 left-0 w-full h-8 bg-gradient-to-t from-[#1b1b1b]/90 to-transparent"></div>
+            )}
+          </motion.div>
+
+          <div className="flex flex-wrap gap-2 mb-4 min-h-[60px]">
+            {project.tech.map((tech: string, techIndex: number) => (
+              <span
+                key={techIndex}
+                className="px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full text-cyan-300 text-xs border border-cyan-500/30 h-fit"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex space-x-3 mt-auto">
+            <a
+              href={project.github}
+              onClick={(e) => e.stopPropagation()}
+              className="flex items-center px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white text-sm transition-colors duration-300"
+            >
+              <Github className="w-4 h-4 mr-1" />
+              Code
+            </a>
+            {project.demo !== '#' && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="flex items-center px-3 py-2 bg-gradient-to-r from-cyan-500 to-purple-600 hover:shadow-lg hover:shadow-cyan-500/30 rounded-lg text-white text-sm transition-all duration-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-1" />
+                Tryout
+              </a>
+            )}
+            <button className="ml-auto text-xs text-cyan-400 hover:text-cyan-300 transition-colors">
+              {isExpanded ? 'Show Less' : 'Read More'}
+            </button>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 // Projects Section
 const ProjectsSection = () => {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
@@ -502,61 +585,61 @@ const ProjectsSection = () => {
     {
       title: 'AgroHub',
       description:
-        'Comprehensive agriculture management platform with real-time monitoring and analytics.',
+        'An AI-powered Android application that empowers farmers with real-time crop monitoring, disease detection, and intelligent weather insights to modernize and optimize agricultural practices',
       image:
-        'https://images.pexels.com/photos/1108572/pexels-photo-1108572.jpeg',
+        '/agrohub.png',
       tech: ['Kotlin', 'Jetpack Compose', 'Spring Framework', 'Google ADK', 'PostgreSQL', 'Docker'],
       github: 'https://github.com/SteveRogersBD/AgroHub',
-      demo: '#',
+      demo: 'https://www.youtube.com/watch?v=phoPuOGwV9E',
     },
     {
       title: 'Ulka',
       description:
-        'Interactive 3D space exploration platform with immersive visualization.',
+        'An immersive space education platform that uses AI agents, 3D simulations, and live tracking to transform meteoroid exploration into an interactive, hands-on learning experience for students',
       image:
         'https://images.pexels.com/photos/2159/flight-sky-earth-space.jpg',
       tech: ['React', 'Node', 'Three.js', 'Tailwind'],
       github: 'https://github.com/SteveRogersBD/Space',
-      demo: '#',
+      demo: 'https://ulka.study',
     },
     {
       title: 'WiggleWorld',
       description:
-        'Engaging exergame platform combining fitness and gaming with 3D experiences.',
+        'An interactive exergame that combines AI-driven pose detection with educational content, allowing children to engage with videos through physical movement while providing parents with real-time monitoring and insights',
       image:
-        'https://images.pexels.com/photos/416778/pexels-photo-416778.jpeg',
+        '/wiggleworld.png',
       tech: ['React', 'Node', 'Three.js', 'Tailwind'],
       github: 'https://github.com/SteveRogersBD/ExerGame-Krio',
-      demo: '#',
+      demo: 'https://youtube.com/watch?v=LE3bWDaCbsY',
     },
     {
       title: 'CalorieChase',
       description:
-        'Smart fitness tracking application with calorie monitoring and workout recommendations.',
+        'A gamified fitness application that motivates users to stay active by combining real-time step tracking with an AI-driven route generation feature that turns daily walks into a rewarding, interactive experience.',
       image:
-        'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
+        '/caloriechase.png',
       tech: ['Java', 'Strands SDK', 'Spring Boot'],
       github: 'https://github.com/SteveRogersBD/CalorieChase',
-      demo: '#',
+      demo: 'https://www.youtube.com/watch?v=481BrXQsT78',
     },
     {
       title: 'Bridge',
       description:
-        'AI-powered communication assistant with text-to-speech and intelligent features.',
+        "An AI-powered accessibility tool that enables seamless, two-way communication by instantly converting text to lifelike speech and transcribing voice to text in real-time",
       image:
-        'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg',
+        '/bridge.png',
       tech: ['Java', 'TTS', 'Android', 'MySQL', 'Spring Boot', 'Gemini API'],
       github: 'https://github.com/SteveRogersBD/BridgeApp',
-      demo: '#',
+      demo: 'https://www.youtube.com/watch?v=IkftVykPeso&t=1s',
     },
 
     {
-      title: 'The Third Eye',
+      title: 'PlateIt',
       description:
-        'AI-based home security system with facial recognition and threat assessment.',
-      image: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg',
+        'An AI-powered culinary assistant that streamlines the cooking process by providing real-time, interactive recipe instructions and kitchen management tools, allowing chefs to seamlessly follow complex techniques directly from their mobile devices',
+      image: '/plateit.png',
       tech: ['Python', 'OpenCV', 'Deep Learning', 'Raspberry Pi'],
-      github: 'https://github.com/SteveRogersBD/PickHacks2024',
+      github: 'https://github.com/SteveRogersBD/PlateIt',
       demo: '#',
     },
   ];
@@ -578,53 +661,7 @@ const ProjectsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group perspective-1000"
-            >
-              <div className="relative bg-white/5 backdrop-blur-md rounded-2xl overflow-hidden border border-white/10 hover:border-cyan-500/30 transition-all duration-500 transform hover:scale-105 hover:rotate-y-12 h-full flex flex-col">
-                <div
-                  className="h-48 bg-cover bg-center relative flex-shrink-0"
-                  style={{ backgroundImage: `url(${project.image})` }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                </div>
-
-                <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-xl font-bold text-white mb-3 h-14 flex items-center">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed h-20 overflow-hidden">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2 mb-4 min-h-[60px]">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="px-2 py-1 bg-gradient-to-r from-cyan-500/20 to-purple-600/20 rounded-full text-cyan-300 text-xs border border-cyan-500/30 h-fit"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex space-x-3 mt-auto">
-                    <a
-                      href={project.github}
-                      className="flex items-center px-3 py-2 bg-gray-800 hover:bg-gray-700 rounded-lg text-white text-sm transition-colors duration-300"
-                    >
-                      <Github className="w-4 h-4 mr-1" />
-                      Code
-                    </a>
-
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            <ProjectCard key={index} project={project} index={index} inView={inView} />
           ))}
         </div>
       </div>
