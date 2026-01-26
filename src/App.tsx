@@ -600,7 +600,7 @@ const ProjectsSection = () => {
         'https://images.pexels.com/photos/2159/flight-sky-earth-space.jpg',
       tech: ['React', 'Node', 'Three.js', 'Tailwind'],
       github: 'https://github.com/SteveRogersBD/Space',
-      demo: 'https://ulka.study',
+      demo: 'https://ulkaa.study/',
     },
     {
       title: 'WiggleWorld',
